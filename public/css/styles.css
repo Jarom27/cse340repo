@@ -1,6 +1,186 @@
+/*https://coolors.co/b80c09-f0a202-f18805-202c59-080705*/
+:root {
+  --engineering-orange: #b80c09;
+  --gamboge: #f0a202;
+  --tangerine: #f18805;
+  --space-cadet: #202c59;
+  --black: #080705;
+}
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
+  padding: 0;
+  margin: 0;
   box-sizing: border-box;
+}
+
+/******* General Changes ***************/
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'Contrail One', Verdana, Geneva, Tahoma, sans-serif;
+  ;
+}
+
+p,
+a,
+li,
+span {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+}
+
+/******* Styles for header ***************/
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+#brand {
+  font-size: 2rem;
+  font-family: 'Contrail One', Arial, Helvetica, sans-serif;
+}
+
+#tools {
+  font-family: 'Contrail One', Arial, Helvetica, sans-serif;
+}
+
+/******* Styles for navigation bar ***************/
+nav {
+  background-color: var(--engineering-orange);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+nav ul li a {
+  font-weight: 500;
+  color: #ffffff;
+
+}
+
+/******* Styles for body ***************/
+.card {
+  position: relative;
+}
+
+.container-detail {
+  position: absolute;
+  top: 30px;
+}
+
+img {
+  width: 100%;
+}
+
+.detail-car {
+  z-index: 3;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 0;
+}
+
+.detail-car ul {
+
+  margin: 0.5rem 0;
+}
+
+.background-color {
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: var(--gamboge);
+  opacity: 0.1;
+  position: absolute;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--space-cadet);
+  color: #ffffff;
+  padding: 0.5rem;
+  z-index: 2;
+}
+
+#reviews {
+  margin: 1rem 0;
+}
+
+#reviews h3 {
+  font-size: 1.5rem;
+}
+
+#reviews ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  list-style: disc;
+  gap: 0.5rem;
+}
+
+#reviews ul li {
+  font-size: 1.1rem;
+}
+
+#upgrades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 0.3rem;
+}
+
+#upgrades article {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#upgrades article div {
+  min-height: 50px;
+  height: 100%;
+  padding: 0.4rem;
+  display: flex;
+  justify-content: center;
+  background-color: var(--tangerine);
+  width: 100%;
+  border: solid 2px var(--black);
+
+}
+
+#upgrades article a {
+  font-size: 1.2rem;
+  color: var(--engineering-orange);
+  text-decoration: underline;
+}
+
+#upgrades article div img {
+  width: auto;
+  object-fit: none;
+}
+
+footer {
+  color: #ffffff;
+  padding: 1rem;
+  background-color: var(--space-cadet);
 }
