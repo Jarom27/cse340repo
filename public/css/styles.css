@@ -87,6 +87,7 @@ nav ul li a {
 }
 
 img {
+  max-width: 500px;
   width: 100%;
 }
 
@@ -118,7 +119,7 @@ img {
   display: inline-block;
   background-color: var(--space-cadet);
   color: #ffffff;
-  padding: 0.5rem;
+  padding: 0.6rem 1rem;
   z-index: 2;
 }
 
@@ -126,7 +127,7 @@ img {
   margin: 1rem 0;
 }
 
-#reviews h3 {
+h3 {
   font-size: 1.5rem;
 }
 
@@ -144,6 +145,11 @@ img {
 }
 
 #upgrades {
+  display: flex;
+  flex-direction: column;
+}
+
+#upgrades div {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 1rem;
@@ -180,7 +186,8 @@ img {
 }
 
 footer {
-  color: #ffffff;
+  font-weight: 600;
+  color: var(--space-cadet);
   padding: 1rem;
-  background-color: var(--space-cadet);
+  /*background-color: var(--space-cadet);*/
 }

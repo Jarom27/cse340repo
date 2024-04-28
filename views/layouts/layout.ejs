@@ -4,13 +4,16 @@
 
     <body>
         <div id="wrapper">
-            <%- include('../partials/header') %>
-                <%- include('../partials/navigation') %>
+            <div id="content">
+                <%- include('../partials/header') %>
+                    <%- include('../partials/navigation') %>
 
-                    <main>
-                        <%- body %>
-                    </main>
-                    <%- include('../partials/footer') %>
+                        <main>
+                            <%- body %>
+                        </main>
+                        <%- include('../partials/footer') %>
+            </div>
+
         </div>
     </body>
 
