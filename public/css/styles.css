@@ -123,6 +123,49 @@ img {
   z-index: 2;
 }
 
+#inv-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 0.5rem;
+  padding: 1rem;
+  align-items: center;
+  row-gap: 1.5rem;
+}
+
+#inv-display li {
+  max-width: 300px;
+}
+
+#inv-display li img {
+  height: 200px;
+}
+
+/* .namePrice {
+  width: 100%;
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+}
+
+.namePrice hr {
+  width: 100%;
+  background-color: var(--engineering-orange);
+  height: 0.5rem;
+  grid-row: 1;
+  grid-column: span 3;
+}
+
+.namePrice a {
+  grid-row: 2;
+  grid-column: span 2;
+}
+
+.namePrice span {
+  grid-row: 2;
+  grid-column: 3;
+} */
+
 #reviews {
   margin: 1rem 0;
 }

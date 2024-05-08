@@ -50,6 +50,10 @@
         background-color: #ffff;
     }
 
+    #inv-display {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
     footer {
         font-size: 1.3rem;
     }
