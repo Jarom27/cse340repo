@@ -228,6 +228,48 @@ h3 {
   object-fit: none;
 }
 
+#detail-title {
+  margin-top: 1rem;
+}
+
+#detail-vehicle {
+  padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#detail-info p span {
+  font-weight: bold;
+}
+
+#detail-highlight {
+  padding: 1rem;
+  padding-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#detail-other {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  padding-top: 0.5rem;
+}
+
+#detail-price {
+  font-size: 2rem;
+  font-family: 'Contrail One', Verdana, Geneva, Tahoma, sans-serif;
+  color: var(--tangerine);
+}
+
 footer {
   font-weight: 600;
   color: var(--space-cadet);

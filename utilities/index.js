@@ -54,5 +54,29 @@ Util.buildClassificationGrid = async function (data) {
     }
     return grid
 }
+Util.buildGetVehicleDetails = async function (data) {
+    let detail = `
+        <article id = 'detail-vehicle'>
+            <section id = 'detail-image'>
+                <img src = '${data.inv_image}' alt = '${data.inv_model} image'>
+            </section>
+            <section id = 'detail-info'>
+                <div id = 'detail-highlight'>
+                    <h2>${data.inv_year} ${data.inv_make}, ${data.inv_model}</h2>
+                    <p id = 'detail-price'>$${new Intl.NumberFormat('en-US').format(data.inv_price)}</p>
+                </div>
+                <div id = 'detail-other'>
+                    <p><span>Ext. Color:</span> ${data.inv_color}</p>
+                    <p><span>Mileage:</span> ${new Intl.NumberFormat('en-US').format(data.inv_miles)} miles</p>
+                    <p><span>Description:</span> ${data.inv_description}</p>
+                </div>
+                
+                
+            </section>
+            
+        </article>
+    `
+    return detail;
+}
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
 module.exports = Util

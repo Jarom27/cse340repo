@@ -54,6 +54,11 @@
         grid-template-columns: 1fr 1fr 1fr;
     }
 
+    #detail-vehicle {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
     footer {
         font-size: 1.3rem;
     }
