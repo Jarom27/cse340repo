@@ -30,7 +30,8 @@ ol {
 h1,
 h2,
 h3,
-h4 {
+h4,
+label {
   font-family: 'Contrail One', Verdana, Geneva, Tahoma, sans-serif;
   ;
 }
@@ -268,6 +269,48 @@ h3 {
   font-size: 2rem;
   font-family: 'Contrail One', Verdana, Geneva, Tahoma, sans-serif;
   color: var(--tangerine);
+}
+
+.login-signup {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.login-signup a {
+  text-decoration: underline;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+form {
+  max-width: 500px;
+  padding: 1rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 1px 1px 1px 1px var(--black);
+}
+
+input[type='submit'] {
+  border: solid;
+  padding: 0.5rem;
+  color: #ffffff;
+  background-color: var(--gamboge);
+}
+
+input:required:invalid,
+input:focus:invalid {
+  color: var(--engineering-orange);
+}
+
+input:required:valid {
+  color: var(--space-cadet);
 }
 
 footer {
