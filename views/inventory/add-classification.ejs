@@ -1,0 +1,19 @@
+<%- messages()%>
+    <form id="classificationForm" action="/inv/add-classification" method="post">
+        <h1>Add classification</h1>
+        <% if (errors) { %>
+            <ul class="notice">
+                <% errors.array().forEach(error=> { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } %>
+                <div class="form-group">
+                    <span>New classification cannot contain a space or special character of any kind</span>
+                    <label for="classification_name">Classification Name</label>
+                    <input type="text" name="classification_name" id="classification_name" required>
+                </div>
+                <input type="submit" value="Register">
+    </form>

@@ -271,6 +271,17 @@ h3 {
   color: var(--tangerine);
 }
 
+#management-options {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#management-options a {
+  color: var(--space-cadet);
+  text-decoration: underline;
+}
+
 .login-signup {
   display: flex;
   flex-direction: row;
