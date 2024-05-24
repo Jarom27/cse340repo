@@ -324,6 +324,22 @@ input:required:valid {
   color: var(--space-cadet);
 }
 
+#inventoryDisplay tbody tr {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr;
+  gap: 1rem;
+
+}
+
+#inventoryDisplay tbody tr td a {
+  color: #202c59;
+  text-decoration: underline;
+}
+
+#inventoryDisplay tbody tr:nth-last-child() {
+  color: var(--engineering-orange);
+}
+
 footer {
   font-weight: 600;
   color: var(--space-cadet);

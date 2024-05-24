@@ -9,6 +9,7 @@ const { render } = require("ejs")
 * *************************************** */
 async function buildLogin(req, res, next) {
     let nav = await utilities.getNav()
+
     res.render("account/login", {
         title: "Login",
         nav,
@@ -45,9 +46,9 @@ async function accountLogin(req, res) {
         return new Error('Access Forbidden')
     }
 }
-async function successLogin(req, res, next) {
-    let nav = utilities.getNav()
-    res.render("account/successLogin", {
+async function buildManagement(req, res, next) {
+    let nav = await utilities.getNav()
+    res.render("account/management", {
         title: "Success",
         nav
     })
@@ -91,6 +92,7 @@ async function registerAccount(req, res) {
         res.status(201).render("account/login", {
             title: "Login",
             nav,
+            errors: null
         })
     } else {
         req.flash("notice", "Sorry, the registration failed.")
@@ -100,4 +102,4 @@ async function registerAccount(req, res) {
         })
     }
 }
-module.exports = { buildLogin, accountLogin, registerAccount, buildRegister, successLogin }
+module.exports = { buildLogin, accountLogin, registerAccount, buildRegister, buildManagement }

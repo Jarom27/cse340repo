@@ -1,0 +1,39 @@
+<%- messages()%>
+    <form id="classificationForm" action="/inv/delete" method="post">
+        <h1><%-title%></h1>
+        <p>Confirm Deletion - The delete is permanent.</p>
+        <% if (errors) { %>
+            <ul class="notice">
+                <% errors.array().forEach(error=> { %>
+                    <li>
+                        <%= error.msg %>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } %>
+                <div class="form-group">
+                    <label for="inv_make">Make</label>
+                    <input readonly type="text" name="inv_make" id="inv_make" required placeholder="min of 3 characters"
+                        value="<%-inv_make%>">
+                </div>
+                <div class="form-group">
+                    <label for="inv_model">Model</label>
+                    <input readonly type="text" name="inv_model" id="inv_model" required
+                        placeholder="min of 3 characters" value="<%-inv_model%>">
+                </div>
+
+                <div class="form-group">
+                    <label for="inv_price">Price</label>
+                    <input readonly type="text" name="inv_price" id="inv_price" required
+                        placeholder="decimals or integers" value="<%-inv_price%>">
+                </div>
+                <div class="form-group">
+                    <label for="inv_year">Year</label>
+                    <input readonly type="text" name="inv_year" id="inv_year" required placeholder="4-digit year"
+                        value="<%-inv_year%>">
+                </div>
+
+                <input type="submit" value="Delete item">
+                <input readonly type="hidden" name="inv_id" <% if(locals.inv_id) { %> value="<%= locals.inv_id %>"
+                    <% } %>>
+    </form>
