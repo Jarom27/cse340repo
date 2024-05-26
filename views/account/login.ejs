@@ -1,27 +1,32 @@
 <form id="loginForm" action="/account/login" method="post">
-    <% if (errors !=undefined && errors !=null) { %>
-        <ul class="notice">
-            <% errors.array().forEach(error=> { %>
-                <li>
-                    <%= error.msg %>
-                </li>
-                <% }) %>
-        </ul>
+    <% if (messages.error) { %>
+        <p>
+            <%= messages.error %>
+        </p>
         <% } %>
-            <h1>Login</h1>
-            <div class="form-group">
-                <label for="account_email">Email</label>
-                <input type="email" name="account_email" id="account_email" required>
-            </div>
+            <% if (errors !=undefined && errors !=null) { %>
+                <ul class="notice">
+                    <% errors.array().forEach(error=> { %>
+                        <li>
+                            <%= error.msg %>
+                        </li>
+                        <% }) %>
+                </ul>
+                <% } %>
+                    <h1>Login</h1>
+                    <div class="form-group">
+                        <label for="account_email">Email</label>
+                        <input type="email" name="account_email" id="account_email" required>
+                    </div>
 
-            <div class="form-group">
-                <label for="account_password">Password</label>
-                <input type="password" name="account_password" id="account_password" required
-                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
-            </div>
-            <input type="submit" value="Log in">
-            <div class="login-signup">
-                <p>No account? </p><a title="Sign up" href="/account/register">Sign up</a>
-            </div>
+                    <div class="form-group">
+                        <label for="account_password">Password</label>
+                        <input type="password" name="account_password" id="account_password" required
+                            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+                    </div>
+                    <input type="submit" value="Log in">
+                    <div class="login-signup">
+                        <p>No account? </p><a title="Sign up" href="/account/register">Sign up</a>
+                    </div>
 
 </form>

@@ -27,6 +27,17 @@ Util.getNav = async function (req, res, next) {
     list += "</ul>"
     return list
 }
+Util.getAccountLinks = async function (req, res, next) {
+    let accountLink = "";
+    if (res.locals.loggedin) {
+        accountLink += `<a href = '/account/edit'>Name</a>`
+        accountLink += `<a href = '/logout'>Logout</a>`
+    }
+    else {
+        accountLink = `<a href="/account/login" title="Click to log in">My Account</a>`
+    }
+    return accountLink;
+}
 Util.buildClassificationGrid = async function (data) {
     let grid
     if (data.length > 0) {
@@ -121,6 +132,8 @@ Util.checkJWTToken = (req, res, next) => {
                     res.clearCookie("jwt")
                     return res.redirect("/account/login")
                 }
+                console.log("Account data")
+                console.log(accountData)
                 res.locals.accountData = accountData
                 res.locals.loggedin = 1
                 next()
@@ -135,6 +148,14 @@ Util.checkLogin = (req, res, next) => {
     } else {
         req.flash("notice", "Please log in.")
         return res.redirect("/account/login")
+    }
+}
+Util.checkAccountType = (req, res, next) => {
+    if (res.locals.accountData.account_type == "Employee" || res.locals.accountData.account_type == "Admin") {
+        next()
+    } else {
+        req.flash("notice", "You do not have the permissions for this section")
+        return res.redirect("/account/")
     }
 }
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
