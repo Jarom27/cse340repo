@@ -59,6 +59,10 @@ app.get("/broken-link", function (req, res, next) {
 })
 app.use("/inv", inventoryRoute)
 app.use("/account", accountRoute)
+app.get("/logout", (req, res) => {
+  res.clearCookie("jwt")
+  res.redirect("/account/login")
+})
 /* ***********************
 * Express Error Handler
 * Place after all other middleware

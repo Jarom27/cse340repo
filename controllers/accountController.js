@@ -101,4 +101,66 @@ async function registerAccount(req, res) {
         })
     }
 }
-module.exports = { buildLogin, accountLogin, registerAccount, buildRegister, buildManagement }
+async function buildAccountEdit(req, res, next) {
+    let nav = await utilities.getNav()
+    let account_firstname = res.locals.accountData.account_firstname
+    res.render("account/update", {
+        title: "Edit account",
+        nav,
+        errors: null,
+        account_firstname
+    })
+}
+async function updateAccount(req, res) {
+    const { account_firstname, account_lastname, account_email, account_id } = req.body;
+
+    const updateResult = await accountModel.updateAccount(
+        account_id, account_firstname, account_lastname, account_email
+    )
+    if (updateResult) {
+        req.flash("notice", `Your profile was successfully updated.`)
+
+        res.redirect("/account/")
+    } else {
+        req.flash("notice", "Sorry, it was not possible to edit your information")
+        res.status(501).render("account/update", {
+            title: "Edit account",
+            nav,
+            errors: null,
+            account_firstname
+        })
+    }
+}
+async function changePassword(req, res) {
+    let nav = await utilities.getNav()
+    const { account_password } = req.body
+    let hashedPassword
+    try {
+        // regular password and cost (salt is generated automatically)
+        hashedPassword = await bcrypt.hashSync(account_password, 10)
+    } catch (error) {
+        req.flash("notice", 'Sorry, there was an error processing the registration.')
+        res.status(500).render("account/register", {
+            title: "Registration",
+            nav,
+            errors: null,
+        })
+    }
+    const updateResult = await accountModel.changePassword(
+        account_id, account_password
+    )
+    if (updateResult) {
+        req.flash("notice", `Your password was successfully updated.`)
+
+        res.redirect("/account/")
+    } else {
+        req.flash("notice", "Sorry, it was not possible to change your password")
+        res.status(501).render("account/update", {
+            title: "Edit account",
+            nav,
+            errors: null,
+            account_firstname
+        })
+    }
+}
+module.exports = { buildLogin, accountLogin, registerAccount, buildRegister, buildManagement, buildAccountEdit, updateAccount, changePassword }
