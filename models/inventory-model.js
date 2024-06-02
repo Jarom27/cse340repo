@@ -12,6 +12,9 @@ async function getClassificationNameById(classification_id) {
 /* ***************************
  *  Get all inventory items and classification_name by classification_id
  * ************************** */
+async function getAllInventory() {
+    return await pool.query("SELECT * FROM public.inventory ")
+}
 async function getInventoryByClassificationId(classification_id) {
     try {
         const data = await pool.query(
@@ -113,4 +116,4 @@ async function deleteInventory(
         new Error("Delete Inventory error ")
     }
 }
-module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById, registerClassification, checkExistingClassification, getClassificationNameById, registerVehicle, updateInventory, deleteInventory }
+module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById, registerClassification, getAllInventory, checkExistingClassification, getClassificationNameById, registerVehicle, updateInventory, deleteInventory }

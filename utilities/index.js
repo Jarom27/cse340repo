@@ -24,6 +24,7 @@ Util.getNav = async function (req, res, next) {
             "</a>"
         list += "</li>"
     })
+    list += '<li><a href="/repair" title="repair page">Repairs</a></li>'
     list += "</ul>"
     return list
 }
@@ -84,6 +85,36 @@ Util.buildClassificationList = async function (classification_id = null) {
     })
     classificationList += "</select>"
     return classificationList
+}
+Util.buildInventoryList = async function (data) {
+    let invList =
+        '<select name="inv_id" id="invList" required>'
+    invList += "<option value=''>Choose a vehicle</option>"
+    console.log(data)
+    data.rows.forEach((row) => {
+
+        invList += '<option value="' + row.inv_id + '"'
+        invList += ">" + row.inv_make + ", " + row.inv_model + "</option>"
+    })
+    invList += "</select>"
+    return invList
+}
+Util.buildRepairList = async function (data) {
+    let repairList = "<tbody>"
+    console.log("Repair data " + data)
+    data.forEach(async row => {
+        console.log(row)
+        let vehicle = await invModel.getVehicleById(row.inv_id)
+        repairList += `
+        <tr>
+            <td>${vehicle.inv_make} ${vehicle.inv_model}</td>
+            <td>${row.repair_description}</td>
+            <td>${row.repair_date}</td>
+            <td>${row.repair_cost}</td>
+        </tr>`
+    })
+    repairList += "</tbody>"
+    return repairList
 }
 Util.buildGetVehicleDetails = async function (data) {
     let detail = `
