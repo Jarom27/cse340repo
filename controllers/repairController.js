@@ -26,6 +26,9 @@ repairCon.buildAddForm = async function (req, res, next) {
         errors: null
     })
 }
+repairCon.addRepair = async function (req, res, next) {
+
+}
 repairCon.getAllRepairs = async function (req, res, next) {
     const repairData = repairModel.ShowAllRepairs()
     res.json(repairData)
