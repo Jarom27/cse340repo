@@ -27,7 +27,10 @@ repairCon.buildAddForm = async function (req, res, next) {
     })
 }
 repairCon.addRepair = async function (req, res, next) {
-
+    const { inv_id, repair_description, repair_date, repair_cost } = req.body
+    console.log(repair_date)
+    const updateResult = await repairModel.AddRepair(inv_id, repair_description, repair_date, parseFloat(repair_cost))
+    res.redirect("/repair")
 }
 repairCon.getAllRepairs = async function (req, res, next) {
     const repairData = repairModel.ShowAllRepairs()

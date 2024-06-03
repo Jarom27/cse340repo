@@ -100,20 +100,30 @@ Util.buildInventoryList = async function (data) {
     return invList
 }
 Util.buildRepairList = async function (data) {
-    let repairList = ""
-    console.log("Repair data " + data)
+    let vehicleList = await invModel.getAllInventory()
+    let repairList = `
+    <table>
+        <thead>
+            <tr>
+                <th>Vehicle Name</th>
+                <th>Description</th>
+                <th>Cost</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>`
     data.forEach(row => {
-        console.log(row)
         repairList += `
-        <li>
+        <tr>
+            <td>${row.inv_make}, ${row.inv_model}</td>
+            <td>${row.repair_description}</td>
+            <td>$${row.repair_cost}</td>
+            <td>${row.repair_date.toLocaleDateString()}</td>
             
-            <p>${row.repair_description}</p>
-            <p>${row.repair_date}</p>
-            <p>${row.repair_cost}</p>
-            </li>
+        </tr>
         `
     })
-    repairList += ""
+    repairList += "</tbody></table>"
     return repairList
 }
 Util.buildGetVehicleDetails = async function (data) {

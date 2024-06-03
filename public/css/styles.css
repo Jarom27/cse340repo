@@ -33,7 +33,6 @@ h3,
 h4,
 label {
   font-family: 'Contrail One', Verdana, Geneva, Tahoma, sans-serif;
-  ;
 }
 
 p,
@@ -338,6 +337,43 @@ input:required:valid {
 
 #inventoryDisplay tbody tr:nth-last-child() {
   color: var(--engineering-orange);
+}
+
+thead tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+tbody tr {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  justify-content: center;
+}
+
+thead tr th {
+  font-family: 'Contrail One', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+tbody tr td {
+  font-family: 'Roboto Condensed', Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.repairOptions {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 footer {
